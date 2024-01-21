@@ -1,19 +1,22 @@
-const userInput = prompt("Введіть числа, через кому:");
+function firstTask() {
+    const stringFirst = prompt("Введіть перший рядок: ");
+    const stringSecond = prompt("Введіть другий рядок: ");
+    const stringThird = prompt("Введіть третій рядок: ");
 
-if(userInput === null || userInput.trim() === ""){
-    alert("Ви нічого не ввели. Бувайте!");
-} else {
-    const numberLoop = userInput.split(",").map(value => value.trim() === "" ? NaN : Number(value));// Пояснення на 18 рядку.
-    if(numberLoop.some(isNaN)){
-        alert("Одне чи декілька введених даних є не коректними, або не є числом. Не забувайте про кому!");
-    } else {
-        const numberLoopSum = numberLoop.reduce((sum, current) => sum + current, 0);
-        const loopLenght = numberLoop.length;
-        alert(`Сума введених Вами чисел: ${numberLoopSum}, ви ввели ${loopLenght} символів.`);
-        
-    }
+    const dataFromPromt = (stringFirst + ' ' + stringSecond + ' ' + stringThird + ' ').split(' ');
+    const mixedString = dataFromPromt.sort(() => Math.random() - 0.5);
+    const mixStrings = mixedString.join(' ');
+
+    alert(`Ваші рядки: ${mixStrings}`); 
 }
 
+function secondTask() {
+    const enterNumber = prompt("Введіть 5ти значне число: ")
 
-//.map(value => value.trim() === "" ? NaN : Number(value)); - До кожного елементу масиву застосовується функція, яка перевіряє, чи рядок є прожній value.trim() === "".
-//Якщо рядок порожній, то елемент замінюється на NaN.
+    if (/^\d{5}$/.test(enterNumber)){
+        const output = enterNumber.split('').join(' ')
+        alert(output);
+    } else {
+       alert("Введіть коректні дані.")
+    }
+}
